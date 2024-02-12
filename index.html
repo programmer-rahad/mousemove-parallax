@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Mousemove Parallax </title>
+	<style> 
+		* {
+			margin: 0;
+			padding: 0;
+		} 
+		section {
+			height: 100vh; 
+			position: relative;
+			overflow: hidden;
+		}
+		.section-bg {
+			position: absolute;
+			content: '';
+			background: url(https://images.unsplash.com/photo-1682687220866-c856f566f1bd?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D) no-repeat scroll center center / cover;
+			top: 0;
+			left: 0;
+			width: 120%;
+			height: 120%;
+		}
+		.container {
+			width: 1100px;
+		}
+	</style>
+</head>
+<body>
+<section> 
+	<div class="section-bg"></div> 
+</section>
+	
+	
+	<script>
+		let parallaxWrap = document.querySelector('section');
+		let parallax = document.querySelector('section .section-bg');
+		
+		parallaxWrap.addEventListener('mousemove',function() {
+			let moveX = -(event.clientX / 20);
+			let moveY = -(event.clientY / 20);
+			parallax.style.backgroundPosition = `${moveX}px ${moveY}px`;			
+			console.log(moveX + '   ' + moveY ); 
+		});
+		
+	</script>
+</body>
+</html>
